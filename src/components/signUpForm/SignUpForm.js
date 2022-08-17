@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
+// Styles
 import './signUpForm.scss';
 
 // Firebase Utils
@@ -37,6 +38,7 @@ const SignUpForm = () => {
 		});
 	};
 
+	// Sign up user with email and password
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
