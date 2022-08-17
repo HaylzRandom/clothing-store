@@ -8,7 +8,7 @@ import Button from '../button/Button';
 // Contexts
 import { CartContext } from '../../contexts/cart';
 
-export const ProductCard = ({ product }) => {
+const ProductCard = ({ product }) => {
 	const { name, price, imageUrl } = product;
 	const { addItemToCart } = useContext(CartContext);
 
@@ -27,3 +27,5 @@ export const ProductCard = ({ product }) => {
 		</div>
 	);
 };
+
+export default ProductCard;

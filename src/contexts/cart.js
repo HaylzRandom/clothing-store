@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from 'react';
-import CartItem from '../components/cartItem/CartItem';
 
 // Add item to cart, if exists increment quantity by 1
 const addCartItem = (cartItems, productToAdd) => {
