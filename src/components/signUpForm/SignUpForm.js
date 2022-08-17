@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
+import './signUpForm.scss';
+
 // Firebase Utils
 import {
 	createAuthUserWithEmailAndPassword,
@@ -9,6 +11,7 @@ import {
 
 // Components
 import FormInput from '../formInput/FormInput';
+import Button from '../button/Button';
 
 const defaultFormFields = {
 	displayName: '',
@@ -61,7 +64,8 @@ const SignUpForm = () => {
 
 	return (
 		<div>
-			<h1>Sign up with your email and password</h1>
+			<h2>Don't have an account?</h2>
+			<span>Sign up with your email and password</span>
 			<form onSubmit={handleSubmit}>
 				<FormInput
 					label='Display Name'
@@ -105,7 +109,7 @@ const SignUpForm = () => {
 					required
 				/>
 
-				<button type='submit'>Sign Up</button>
+				<Button type='submit'>Sign Up</Button>
 			</form>
 		</div>
 	);
