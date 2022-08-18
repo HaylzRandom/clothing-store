@@ -8,12 +8,12 @@ import {
 	signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase';
 
-import './signInForm.scss';
+// Styles
+import { SignInContainer, ButtonsContainer } from './signInForm.styles';
 
 // Components
 import FormInput from '../formInput/FormInput';
-import Button from '../button/Button';
-
+import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
 
 const defaultFormFields = {
 	email: '',
@@ -31,7 +31,6 @@ const SignInForm = () => {
 	// Sign in with Google
 	const signInWithGoogle = async () => {
 		const { user } = await signInWithGooglePopup();
-		
 	};
 
 	const handleChange = (e) => {
@@ -68,7 +67,7 @@ const SignInForm = () => {
 	};
 
 	return (
-		<div className='sign-in-container'>
+		<SignInContainer>
 			<h2>Already have an account?</h2>
 			<span>Sign in with your email and password</span>
 			<form onSubmit={handleSubmit}>
@@ -92,14 +91,17 @@ const SignInForm = () => {
 					required
 				/>
 
-				<div className='buttons-container'>
+				<ButtonsContainer>
 					<Button type='submit'>Sign In</Button>
-					<Button type='button' buttonType='google' onClick={signInWithGoogle}>
+					<Button
+						type='button'
+						buttonType={BUTTON_TYPE_CLASSES.google}
+						onClick={signInWithGoogle}>
 						Sign in with Google
 					</Button>
-				</div>
+				</ButtonsContainer>
 			</form>
-		</div>
+		</SignInContainer>
 	);
 };
 
