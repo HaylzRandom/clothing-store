@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 // Styles
-import './signUpForm.scss';
+import { SignUpContainer } from './signUpForm.styles.js';
 
 // Firebase Utils
 import {
@@ -65,7 +65,7 @@ const SignUpForm = () => {
 	};
 
 	return (
-		<div>
+		<SignUpContainer>
 			<h2>Don't have an account?</h2>
 			<span>Sign up with your email and password</span>
 			<form onSubmit={handleSubmit}>
@@ -113,7 +113,7 @@ const SignUpForm = () => {
 
 				<Button type='submit'>Sign Up</Button>
 			</form>
-		</div>
+		</SignUpContainer>
 	);
 };
 
