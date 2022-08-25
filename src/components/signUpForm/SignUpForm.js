@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 // Styles
@@ -14,6 +15,8 @@ import {
 import FormInput from '../formInput/FormInput';
 import Button from '../button/Button';
 
+import { signUpStart } from '../../store/user/userAction.js';
+
 const defaultFormFields = {
 	displayName: '',
 	email: '',
@@ -24,6 +27,8 @@ const defaultFormFields = {
 const SignUpForm = () => {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { displayName, email, password, confirmPassword } = formFields;
+
+	const dispatch = useDispatch();
 
 	const resetFields = () => {
 		setFormFields(defaultFormFields);
@@ -48,12 +53,7 @@ const SignUpForm = () => {
 		}
 
 		try {
-			const { user } = await createAuthUserWithEmailAndPassword(
-				email,
-				password
-			);
-
-			await createUserDocumentFromAuth(user, { displayName });
+			dispatch(signUpStart(email, password, displayName));
 
 			resetFields();
 		} catch (error) {

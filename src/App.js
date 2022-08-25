@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {
 	onAuthStateChangedListener,
 	createUserDocumentFromAuth,
+	getCurrentUser,
 } from './utils/firebase/firebase';
 
 // Components
@@ -20,22 +21,14 @@ import Shop from './routes/shop/Shop';
 import Checkout from './routes/checkout/Checkout';
 
 // Redux Actions
-import { setCurrentUser } from './store/user/userAction';
+import { checkUserSession } from './store/user/userAction';
 
 const App = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		const unsubscribe = onAuthStateChangedListener((user) => {
-			if (user) {
-				createUserDocumentFromAuth(user);
-			}
-			dispatch(setCurrentUser(user));
-		});
-
-		return unsubscribe;
-		// eslint-disable-next-line
-	}, [dispatch]);
+		dispatch(checkUserSession());
+	}, []);
 
 	return (
 		<>

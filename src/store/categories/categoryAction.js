@@ -23,7 +23,7 @@ export const fetchCategoriesFailed = (error) => {
 };
 
 // Thunk
-export const fetchCategoriesAsync = () => async (dispatch) => {
+/* export const fetchCategoriesAsync = () => async (dispatch) => {
 	dispatch(fetchCategoriesStart());
 	try {
 		const categoriesArray = await getCategoriesAndDocuments('categories');
@@ -31,4 +31,4 @@ export const fetchCategoriesAsync = () => async (dispatch) => {
 	} catch (error) {
 		dispatch(fetchCategoriesFailed(error));
 	}
-};
+}; */

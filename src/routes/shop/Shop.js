@@ -11,7 +11,7 @@ import SHOP_DATA from '../../shopdata';
 // Firebase Utils
 import { addCollectionAndDocuments } from '../../utils/firebase/firebase';
 
-import { fetchCategoriesAsync } from '../../store/categories/categoryAction';
+import { fetchCategoriesStart } from '../../store/categories/categoryAction';
 
 const Shop = () => {
 	const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const Shop = () => {
 
 	// Fetch items from firebase
 	useEffect(() => {
-		dispatch(fetchCategoriesAsync());
+		dispatch(fetchCategoriesStart());
 	}, []);
 
 	return (
