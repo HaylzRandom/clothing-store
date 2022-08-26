@@ -100,6 +100,7 @@ export const createUserDocumentFromAuth = async (
 	// If user data does not exist
 	// Create / set document with the data from userAuth in collection
 	if (!userSnapshot.exists()) {
+		console.log(userAuth);
 		const { displayName, email } = userAuth;
 		const createdAt = new Date();
 
@@ -116,7 +117,7 @@ export const createUserDocumentFromAuth = async (
 	}
 
 	// If user data exists
-	return userDocRef;
+	return userSnapshot;
 };
 
 // Create user with e-mail and password
@@ -139,6 +140,19 @@ export const signOutUser = async () => await signOut(auth);
 // Listens for changes in state
 export const onAuthStateChangedListener = (callback) =>
 	onAuthStateChanged(auth, callback);
+
+export const getCurrentUser = () => {
+	return new Promise((resolve, reject) => {
+		const unsubscribe = onAuthStateChanged(
+			auth,
+			(userAuth) => {
+				unsubscribe();
+				resolve(userAuth);
+			},
+			reject
+		);
+	});
+};
 
 // Testing purposes
 if (process.env.NODE_ENV !== 'production') {
