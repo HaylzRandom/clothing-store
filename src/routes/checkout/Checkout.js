@@ -16,10 +16,12 @@ import {
 
 // Components
 import CheckoutItem from '../../components/checkoutItem/CheckoutItem';
+import PaymentForm from '../../components/paymentForm/PaymentForm';
 
 const Checkout = () => {
 	const cartItems = useSelector(selectCartItems);
 	const cartTotal = useSelector(selectCartTotal);
+
 	return (
 		<CheckoutContainer>
 			<CheckoutHeader>
@@ -44,6 +46,7 @@ const Checkout = () => {
 				<CheckoutItem key={cartItem.id} cartItem={cartItem} />
 			))}
 			<Total>Total: £{cartTotal}</Total>
+			<PaymentForm />
 		</CheckoutContainer>
 	);
 };
