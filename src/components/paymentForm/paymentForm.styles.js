@@ -19,3 +19,13 @@ export const PaymentButton = styled(Button)`
 	margin-left: auto;
 	margin-top: 30px;
 `;
+
+export const TestingDetails = styled.div`
+	font-size: 10px;
+	p {
+		font-weight: bold;
+	}
+	span {
+		font-weight: lighter;
+	}
+`;
