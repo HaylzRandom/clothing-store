@@ -1,8 +1,17 @@
+import { Key } from 'react';
+
 // Styles
 import { DirectoryContainer } from './directory.styles.js';
 
 // Components
 import DirectoryItem from '../directoryItem/DirectoryItem';
+
+export type DirectoryCategory = {
+	id: Key;
+	title: string;
+	imageUrl: string;
+	route: string;
+};
 
 const categories = [
 	{

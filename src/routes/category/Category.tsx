@@ -15,8 +15,14 @@ import {
 import ProductCard from '../../components/productCard/ProductCard';
 import Spinner from '../../components/spinner/Spinner';
 
+type CategoryRouteParams = {
+	category: string;
+};
+
 const Category = () => {
-	const { category } = useParams();
+	const { category } = useParams<
+		keyof CategoryRouteParams
+	>() as CategoryRouteParams;
 
 	const categoriesMap = useSelector(selectCategoriesMap);
 	const isLoading = useSelector(selectCategoriesIsLoading);

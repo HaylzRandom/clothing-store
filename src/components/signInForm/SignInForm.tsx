@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
 import { useDispatch } from 'react-redux';
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import { toast } from 'react-toastify';
 
 // Styles
@@ -34,7 +35,7 @@ const SignInForm = () => {
 		dispatch(googleSignInStart());
 	};
 
-	const handleChange = (e) => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 
 		setFormFields({
@@ -44,7 +45,7 @@ const SignInForm = () => {
 	};
 
 	// Sign in with email and password
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		try {
@@ -52,14 +53,12 @@ const SignInForm = () => {
 
 			resetFields();
 		} catch (error) {
-			switch (error.code) {
-				case 'auth/wrong-password':
-					toast.error('Incorrect password');
-					break;
-				case 'auth/user-not-found':
-					toast.error('No user associated with email');
-				default:
-					console.log(error);
+			if ((error as AuthError).code === AuthErrorCodes.INVALID_PASSWORD) {
+				toast.error('Incorrect Password');
+			}
+
+			if ((error as AuthError).code === AuthErrorCodes.USER_DELETED) {
+				toast.error('No user associated with email');
 			}
 		}
 	};

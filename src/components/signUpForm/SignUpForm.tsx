@@ -1,15 +1,10 @@
-import { useState } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 // Styles
 import { SignUpContainer } from './signUpForm.styles.js';
-
-// Firebase Utils
-import {
-	createAuthUserWithEmailAndPassword,
-	createUserDocumentFromAuth,
-} from '../../utils/firebase/firebase';
 
 // Components
 import FormInput from '../formInput/FormInput';
@@ -34,7 +29,7 @@ const SignUpForm = () => {
 		setFormFields(defaultFormFields);
 	};
 
-	const handleChange = (e) => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 
 		setFormFields({
@@ -44,7 +39,7 @@ const SignUpForm = () => {
 	};
 
 	// Sign up user with email and password
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (password !== confirmPassword) {
@@ -57,10 +52,9 @@ const SignUpForm = () => {
 
 			resetFields();
 		} catch (error) {
-			if (error.code === 'auth/email-already-in-use') {
-				toast.error('E-mail in use, cannot create user');
+			if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
+				toast.error('E-mail already in use, cannot create user');
 			}
-			toast.error(error);
 		}
 	};
 
@@ -96,7 +90,7 @@ const SignUpForm = () => {
 					name='password'
 					onChange={handleChange}
 					value={password}
-					minLength='6'
+					minLength={6}
 					required
 				/>
 
@@ -107,7 +101,7 @@ const SignUpForm = () => {
 					name='confirmPassword'
 					onChange={handleChange}
 					value={confirmPassword}
-					minLength='6'
+					minLength={6}
 					required
 				/>
 
