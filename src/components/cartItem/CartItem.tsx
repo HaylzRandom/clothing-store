@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 // Styles
-import { CartItemContainer, ItemDetails } from './cartItem.styles.js';
+import { CartItemContainer, ItemDetails } from './cartItem.styles';
 
 import { CartItem as TCartItem } from '../../store/cart/cartTypes';
 

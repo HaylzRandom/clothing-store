@@ -4,13 +4,6 @@ import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Firebase Utils
-import {
-	onAuthStateChangedListener,
-	createUserDocumentFromAuth,
-	getCurrentUser,
-} from './utils/firebase/firebase';
-
 // Components
 
 // Routes
@@ -28,6 +21,7 @@ const App = () => {
 
 	useEffect(() => {
 		dispatch(checkUserSession());
+		// eslint-disable-next-line
 	}, []);
 
 	return (

@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
-import { CategoryItem } from '../../store/categories/categoryTypes.js';
+import { CategoryItem } from '../../store/categories/categoryTypes';
 
 // Styles
 import {
 	CategoryPreviewContainer,
 	Title,
 	Preview,
-} from './categoryPreview.styles.js';
+} from './categoryPreview.styles';
 
 // Component
 import ProductCard from '../productCard/ProductCard';

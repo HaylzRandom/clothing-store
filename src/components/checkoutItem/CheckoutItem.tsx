@@ -10,7 +10,7 @@ import {
 	Arrow,
 	Value,
 	RemoveButton,
-} from './checkoutItem.styles.js';
+} from './checkoutItem.styles';
 
 // Redux
 import { selectCartItems } from '../../store/cart/cartSelector';
@@ -19,7 +19,7 @@ import {
 	addItemToCart,
 	removeItemFromCart,
 } from '../../store/cart/cartAction';
-import { CartItem } from '../../store/cart/cartTypes.js';
+import { CartItem } from '../../store/cart/cartTypes';
 
 type CheckOutItemProps = {
 	cartItem: CartItem;

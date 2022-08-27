@@ -8,7 +8,7 @@ import {
 	DirectoryItemContainer,
 	BackgroundImage,
 	Body,
-} from './directoryItem.styles.js';
+} from './directoryItem.styles';
 
 type DirectoryItemsProps = {
 	category: DirectoryCategory;

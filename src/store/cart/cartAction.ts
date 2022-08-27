@@ -4,10 +4,8 @@ import { CART_ACTION_TYPES, CartItem } from './cartTypes';
 import {
 	createAction,
 	withMatcher,
-	Action,
 	ActionWithPayload,
 } from '../../utils/reducer/reducer';
-
 
 // Add item to cart, if exists increment quantity by 1
 const addCartItem = (

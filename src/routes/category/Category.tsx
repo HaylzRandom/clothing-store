@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 // Styles
-import { Title, CategoryContainer } from './category.styles.js';
+import { Title, CategoryContainer } from './category.styles';
 
 // Redux
 import {

@@ -1,7 +1,7 @@
 import { Key } from 'react';
 
 // Styles
-import { DirectoryContainer } from './directory.styles.js';
+import { DirectoryContainer } from './directory.styles';
 
 // Components
 import DirectoryItem from '../directoryItem/DirectoryItem';

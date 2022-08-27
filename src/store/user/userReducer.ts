@@ -1,7 +1,5 @@
 import { AnyAction } from 'redux';
 
-import { USER_ACTIONS_TYPES } from './userTypes';
-
 import {
 	signInFailed,
 	signUpFailed,

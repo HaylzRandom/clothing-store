@@ -24,6 +24,7 @@ const Shop = () => {
 	// Fetch items from firebase
 	useEffect(() => {
 		dispatch(fetchCategoriesStart());
+		// eslint-disable-next-line
 	}, []);
 
 	return (

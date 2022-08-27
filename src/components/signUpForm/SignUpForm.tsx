@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 // Styles
-import { SignUpContainer } from './signUpForm.styles.js';
+import { SignUpContainer } from './signUpForm.styles';
 
 // Components
 import FormInput from '../formInput/FormInput';

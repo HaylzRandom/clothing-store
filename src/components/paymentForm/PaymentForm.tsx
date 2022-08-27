@@ -57,7 +57,7 @@ const PaymentForm = () => {
 			payment_method: {
 				card: cardDetails,
 				billing_details: {
-					name: currentUser ? currentUser.displayName : 'Guest',
+					name: currentUser ? currentUser?.displayName : 'Guest',
 				},
 			},
 		});

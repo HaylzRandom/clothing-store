@@ -8,6 +8,7 @@ export const selectUserReducer = (state: RootState): UserState => {
 	return state.user;
 };
 
-export const selectCurrentUser = createSelector(selectUserReducer, (user) => {
-	return user.currentUser;
-});
+export const selectCurrentUser = createSelector(
+	selectUserReducer,
+	(user) => user.currentUser
+);

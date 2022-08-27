@@ -6,7 +6,7 @@ import {
 	CartDropdownContainer,
 	EmptyMessage,
 	CartItems,
-} from './cartDropdown.styles.js';
+} from './cartDropdown.styles';
 
 // Redux
 import { selectCartItems } from '../../store/cart/cartSelector';
