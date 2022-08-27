@@ -9,7 +9,7 @@ import {
 } from './cartDropdown.styles.js';
 
 // Redux
-import { selectCartItems } from '../../store/cart/cartSelector.js';
+import { selectCartItems } from '../../store/cart/cartSelector';
 
 // Components
 import Button from '../button/Button';

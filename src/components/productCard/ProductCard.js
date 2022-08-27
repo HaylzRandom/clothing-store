@@ -8,7 +8,7 @@ import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
 
 // Redux
 import { addItemToCart } from '../../store/cart/cartAction';
-import { selectCartItems } from '../../store/cart/cartSelector.js';
+import { selectCartItems } from '../../store/cart/cartSelector';
 
 const ProductCard = ({ product }) => {
 	const dispatch = useDispatch();

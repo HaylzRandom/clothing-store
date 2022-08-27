@@ -15,7 +15,7 @@ import {
 import FormInput from '../formInput/FormInput';
 import Button from '../button/Button';
 
-import { signUpStart } from '../../store/user/userAction.js';
+import { signUpStart } from '../../store/user/userAction';
 
 const defaultFormFields = {
 	displayName: '',

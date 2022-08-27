@@ -12,7 +12,7 @@ import {
 import {
 	selectCartItems,
 	selectCartTotal,
-} from '../../store/cart/cartSelector.js';
+} from '../../store/cart/cartSelector';
 
 // Components
 import CheckoutItem from '../../components/checkoutItem/CheckoutItem';

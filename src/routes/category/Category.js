@@ -9,11 +9,11 @@ import { Title, CategoryContainer } from './category.styles.js';
 import {
 	selectCategoriesMap,
 	selectCategoriesIsLoading,
-} from '../../store/categories/categorySelector.js';
+} from '../../store/categories/categorySelector';
 
 // Components
 import ProductCard from '../../components/productCard/ProductCard';
-import Spinner from '../../components/spinner/Spinner.js';
+import Spinner from '../../components/spinner/Spinner';
 
 const Category = () => {
 	const { category } = useParams();

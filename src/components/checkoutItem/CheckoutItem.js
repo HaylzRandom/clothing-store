@@ -12,12 +12,12 @@ import {
 } from './checkoutItem.styles.js';
 
 // Redux
-import { selectCartItems } from '../../store/cart/cartSelector.js';
+import { selectCartItems } from '../../store/cart/cartSelector';
 import {
 	clearItemFromCart,
 	addItemToCart,
 	removeItemFromCart,
-} from '../../store/cart/cartAction.js';
+} from '../../store/cart/cartAction';
 
 const CheckoutItem = ({ cartItem }) => {
 	const dispatch = useDispatch();
