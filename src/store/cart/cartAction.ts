@@ -7,7 +7,7 @@ import {
 	Action,
 	ActionWithPayload,
 } from '../../utils/reducer/reducer';
-import CartItem from '../../components/cartItem/CartItem';
+
 
 // Add item to cart, if exists increment quantity by 1
 const addCartItem = (
