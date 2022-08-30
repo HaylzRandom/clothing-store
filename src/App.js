@@ -1,20 +1,23 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Components
-
-// Routes
-import Home from './routes/home/Home';
-import Navigation from './routes/navigation/Navigation';
-import Authentication from './routes/authentication/Authentication';
-import Shop from './routes/shop/Shop';
-import Checkout from './routes/checkout/Checkout';
+import Spinner from './components/spinner/Spinner';
 
 // Redux Actions
 import { checkUserSession } from './store/user/userAction';
+
+// Routes
+const Home = lazy(() => import('./routes/home/Home'));
+const Navigation = lazy(() => import('./routes/navigation/Navigation'));
+const Authentication = lazy(() =>
+	import('./routes/authentication/Authentication')
+);
+const Shop = lazy(() => import('./routes/shop/Shop'));
+const Checkout = lazy(() => import('./routes/checkout/Checkout'))
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -25,7 +28,7 @@ const App = () => {
 	}, []);
 
 	return (
-		<>
+		<Suspense fallback={<Spinner />}>
 			<Routes>
 				<Route path='/' element={<Navigation />}>
 					<Route index element={<Home />} />
@@ -35,7 +38,7 @@ const App = () => {
 				</Route>
 			</Routes>
 			<ToastContainer />
-		</>
+		</Suspense>
 	);
 };
 
