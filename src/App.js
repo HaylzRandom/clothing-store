@@ -10,6 +10,9 @@ import Spinner from './components/spinner/Spinner';
 // Redux Actions
 import { checkUserSession } from './store/user/userAction';
 
+// Styles
+import { GlobalStyle } from './global.styles';
+
 // Routes
 const Home = lazy(() => import('./routes/home/Home'));
 const Navigation = lazy(() => import('./routes/navigation/Navigation'));
@@ -17,7 +20,7 @@ const Authentication = lazy(() =>
 	import('./routes/authentication/Authentication')
 );
 const Shop = lazy(() => import('./routes/shop/Shop'));
-const Checkout = lazy(() => import('./routes/checkout/Checkout'))
+const Checkout = lazy(() => import('./routes/checkout/Checkout'));
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -29,6 +32,7 @@ const App = () => {
 
 	return (
 		<Suspense fallback={<Spinner />}>
+			<GlobalStyle />
 			<Routes>
 				<Route path='/' element={<Navigation />}>
 					<Route index element={<Home />} />
