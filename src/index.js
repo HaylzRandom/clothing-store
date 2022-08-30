@@ -13,8 +13,6 @@ import { store, persistor } from './store/store';
 // Stripe
 import { stripePromise } from './utils/stripe/stripe';
 
-import './index.scss';
-
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

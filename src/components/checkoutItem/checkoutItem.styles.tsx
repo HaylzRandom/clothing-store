@@ -8,6 +8,10 @@ export const CheckoutItemContainer = styled.div`
 	padding: 15px 0;
 	font-size: 20px;
 	align-items: center;
+
+	@media screen and (max-width: 400px) {
+		font-size: 15px;
+	}
 `;
 
 export const ImageContainer = styled.div`
@@ -22,6 +26,10 @@ export const ImageContainer = styled.div`
 
 export const BaseSpan = styled.span`
 	width: 23%;
+
+	@media screen and (max-width: 400px) {
+		width: 25%;
+	}
 `;
 
 export const Quantity = styled(BaseSpan)`

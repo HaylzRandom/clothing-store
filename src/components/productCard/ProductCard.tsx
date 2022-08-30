@@ -2,7 +2,12 @@ import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Styles
-import { ProductContainer, Footer, Name, Price } from './productCard.styles';
+import {
+	ProductCartContainer,
+	Footer,
+	Name,
+	Price,
+} from './productCard.styles';
 
 // Components
 import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
@@ -26,7 +31,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 	const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 
 	return (
-		<ProductContainer>
+		<ProductCartContainer>
 			<img src={imageUrl} alt={`${name}`} />
 			<Footer>
 				<Name>{name}</Name>
@@ -38,7 +43,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 			>
 				Add to Cart
 			</Button>
-		</ProductContainer>
+		</ProductCartContainer>
 	);
 };
 
